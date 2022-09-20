@@ -1,6 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function AddEvent() {
+
+    const [event,setEvent]=useState({
+        title:"",
+        description:"",
+        place:"",
+        date:""
+    })
+
+    const{title,description,place,date}=event
+
+    const onInputChange=(e)=>{
+        setEvent({...event,[e.target.name]:e.target.value})
+
+    }
+
   return (
     <div className='container'>
         <div className='row'>
@@ -14,7 +29,10 @@ export default function AddEvent() {
                     type={"text"}
                     className="form-control"
                     placeholder='Enter the title of the event'
-                    name='title'/>
+                    name='title'
+                    value={title}
+                    onChange={(e)=>onInputChange(e)}
+                    />
                 </div>
                 <div className='mb-3'>
                     <label htmlFor='Description' className='form-label'>
@@ -24,7 +42,10 @@ export default function AddEvent() {
                     type={"text"}
                     className="form-control"
                     placeholder='Enter the description'
-                    name='description'/>
+                    name='description'
+                    value={description}
+                    onChange={(e)=>onInputChange(e)}
+                    />
                 </div>
                 <div className='mb-3'>
                     <label htmlFor='Place' className='form-label'>
@@ -34,7 +55,10 @@ export default function AddEvent() {
                     type={"text"}
                     className="form-control"
                     placeholder='Enter the location'
-                    name='place'/>
+                    name='place'
+                    value={place}
+                    onChange={(e)=>onInputChange(e)}
+                    />
                 </div>
                 <div className='mb-3'>
                     <label htmlFor='Date' className='form-label'>
@@ -44,7 +68,10 @@ export default function AddEvent() {
                     type={"datetime-local"}
                     className="form-control"
                     placeholder='Enter the date'
-                    name='date'/>
+                    name='date'
+                    value={date}
+                    onChange={(e)=>onInputChange(e)}
+                    />
                 </div>
                 <button type='submit' className='btn btn-outline-primary'>
                     Submit
