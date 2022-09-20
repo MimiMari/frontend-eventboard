@@ -1,26 +1,36 @@
+import axios from 'axios'
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function AddEvent() {
+
+    let navigate=useNavigate()
 
     const [event,setEvent]=useState({
         title:"",
         description:"",
         place:"",
         date:""
-    })
+    });
 
-    const{title,description,place,date}=event
+    const{title,description,place,date}=event;
 
     const onInputChange=(e)=>{
         setEvent({...event,[e.target.name]:e.target.value})
+    };
 
-    }
+    const onSubmit=async(e)=>{
+        e.preventDefault();
+        await axios.post("http://localhost:8080/event",event)
+        navigate("/")
+    };
 
   return (
     <div className='container'>
         <div className='row'>
             <div className='col-md-6 offset-md-3 border rounded p4 mt-2 shadow'>
                 <h2 className='text-center m-4'>Add Event</h2>
+                <form onSubmit={(e)=>onSubmit(e)}>
                 <div className='mb-3'>
                     <label htmlFor='Title' className='form-label'>
                         Title
@@ -76,9 +86,10 @@ export default function AddEvent() {
                 <button type='submit' className='btn btn-outline-primary'>
                     Submit
                 </button>
-                <button type='submit' className='btn btn-outline-danger mx-2'>
+                <Link className='btn btn-outline-danger mx-2' to="/">
                     Cancel
-                </button>
+                </Link>
+              </form>
             </div>
         </div>
 
