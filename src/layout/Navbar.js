@@ -18,7 +18,7 @@ export default function Navbar() {
             <span className="navbar-toggler-icon"></span>
          </button>
 
-         <button className='btn btn-outlin-light'>Add Event</button>
+         <button className='btn btn-outline-light'>Add Event</button>
         </div>
       </nav>
     </div>
