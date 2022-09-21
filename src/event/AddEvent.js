@@ -25,6 +25,7 @@ export default function AddEvent() {
         navigate("/")
     };
 
+
   return (
     <div className='container'>
         <div className='row'>
@@ -38,7 +39,7 @@ export default function AddEvent() {
                     <input
                     type={"text"}
                     className="form-control"
-                    placeholder='Enter the title of the event'
+                    placeholder='Enter title of event'
                     name='title'
                     value={title}
                     onChange={(e)=>onInputChange(e)}
@@ -48,14 +49,15 @@ export default function AddEvent() {
                     <label htmlFor='Description' className='form-label'>
                         Description
                     </label>
-                    <input
+                    <textarea 
+                    class="form-control" 
+                    rows="4"
                     type={"text"}
-                    className="form-control"
-                    placeholder='Enter the description'
+                    placeholder='Enter description'
                     name='description'
                     value={description}
                     onChange={(e)=>onInputChange(e)}
-                    />
+                    ></textarea>
                 </div>
                 <div className='mb-3'>
                     <label htmlFor='Place' className='form-label'>
@@ -64,7 +66,7 @@ export default function AddEvent() {
                     <input
                     type={"text"}
                     className="form-control"
-                    placeholder='Enter the location'
+                    placeholder='Enter location'
                     name='place'
                     value={place}
                     onChange={(e)=>onInputChange(e)}
@@ -77,11 +79,16 @@ export default function AddEvent() {
                     <input
                     type={"datetime-local"}
                     className="form-control"
-                    placeholder='Enter the date'
+                    placeholder='Choose date and time'
                     name='date'
                     value={date}
                     onChange={(e)=>onInputChange(e)}
                     />
+                </div>
+                <div className='mb-3'>
+                 <label htmlFor='Date' className='form-label'>
+                    Date
+                    </label> 
                 </div>
                 <button type='submit' className='btn btn-outline-primary'>
                     Submit
