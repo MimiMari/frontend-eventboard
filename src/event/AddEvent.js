@@ -85,11 +85,6 @@ export default function AddEvent() {
                     onChange={(e)=>onInputChange(e)}
                     />
                 </div>
-                <div className='mb-3'>
-                 <label htmlFor='Date' className='form-label'>
-                    Date
-                    </label> 
-                </div>
                 <button type='submit' className='btn btn-outline-primary'>
                     Submit
                 </button>
