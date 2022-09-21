@@ -1,0 +1,28 @@
+.gallery {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: wrap;
+    padding: 10px;
+    border: 1px solid black;
+    margin-top: 15px;
+    margin-left: 20px;
+    width: 400px;
+    height: 225px;
+}
+
+.row{
+
+}
+
+.collumn{
+    text-align: left;
+}
+
+.description{
+
+}
+

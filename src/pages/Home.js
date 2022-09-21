@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import './Home.css';
 
 export default function Home() {
 
@@ -7,7 +8,6 @@ export default function Home() {
 
     useEffect(() => {
         loadEvents();
-        console.log("test logging")
     }, []);
 
     const loadEvents=async()=>{
@@ -16,36 +16,44 @@ export default function Home() {
         setEvents(result.data);
     }
 
+    // handleEndDateChange = (event) => {
+    //   event.date = event.target.value.replace('T', ' ');
+    // }
+
+  //   const splitDate = (date) => {
+  //     return date.split("",10)
+  // }
+
+  // <p>Date:    {splitDate(props.stock.date)}</p>
+
+   
+
   return (
-    <div className="container">
-      <div className='py-4'>
+    <div className="gallery">
                 {
                   events.map((event,index)=>(
                     <tr>
-                      {/* <div className="border border-dark rounded m-2 p-3 "> */}
-                      <div className="border border-dark rounded m-2 p-3 col-md-10">
-                        <div className='container text-left'>
-                          <div className='row'>
-                            <div className='col'>
-                            <p key={index}>{index+1}</p>
-                            <p>Title: {event.title}</p>
-                            <p>Date: {event.date}</p>
-                            <p>Place: {event.place}</p>
+                      <div className="card">
+                          <div className="row">
+                            <div className="col">
+                              <div className="collumn">
+                               <p key={index}>{index+1}</p>
+                               <p>Title: {event.title}</p>
+                               <p>Date: {event.date}</p>
+                               <p>Place: {event.place}</p>
+                             </div>
                             </div>
-                            <div className='col'>
-                            Description: {event.description}
+                            <div className="col align-self-center">
+                             <div className="description">
+                              Description: 
+                             <p>{event.description}</p>
                             </div>
-                            
-                          </div>
+                          </div>                           
                         </div>
-
-
                       </div>
-                        
                     </tr>
                     ))
                 }
       </div>
-    </div>
   )
 }
