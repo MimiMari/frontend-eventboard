@@ -22,15 +22,26 @@ export default function Home() {
                 {
                   events.map((event,index)=>(
                     <tr>
-                      <div className="border border-dark rounded m-2 p-3">
-                        <th>
-                        <p key={index}>{index+1}</p>
-                        <p>Title: {event.title}</p>
-                        <p>Date: {event.date}</p>
-                        <p>Place: {event.place}</p>
-                        </th>
-                        <th className="my-2">Description: {event.description}</th>
+                      {/* <div className="border border-dark rounded m-2 p-3 "> */}
+                      <div className="border border-dark rounded m-2 p-3 col-md-10">
+                        <div className='container text-left'>
+                          <div className='row'>
+                            <div className='col'>
+                            <p key={index}>{index+1}</p>
+                            <p>Title: {event.title}</p>
+                            <p>Date: {event.date}</p>
+                            <p>Place: {event.place}</p>
+                            </div>
+                            <div className='col'>
+                            Description: {event.description}
+                            </div>
+                            
+                          </div>
+                        </div>
+
+
                       </div>
+                        
                     </tr>
                     ))
                 }
