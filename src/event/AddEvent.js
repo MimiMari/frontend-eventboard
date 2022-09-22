@@ -41,6 +41,7 @@ export default function AddEvent() {
                     className="form-control"
                     placeholder='Enter title of event'
                     name='title'
+                    required
                     value={title}
                     onChange={(e)=>onInputChange(e)}
                     />
@@ -55,6 +56,7 @@ export default function AddEvent() {
                     type={"text"}
                     placeholder='Enter description'
                     name='description'
+                    required
                     value={description}
                     onChange={(e)=>onInputChange(e)}
                     ></textarea>
@@ -68,6 +70,7 @@ export default function AddEvent() {
                     className="form-control"
                     placeholder='Enter location'
                     name='place'
+                    required
                     value={place}
                     onChange={(e)=>onInputChange(e)}
                     />
@@ -81,6 +84,7 @@ export default function AddEvent() {
                     className="form-control"
                     placeholder='Choose date and time'
                     name='date'
+                    required
                     value={date}
                     onChange={(e)=>onInputChange(e)}
                     />
