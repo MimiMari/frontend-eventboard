@@ -5,6 +5,7 @@ import './Home.css';
 export default function Home() {
 
     const [events,setEvents]=useState([])
+    const [error,setErrors] = useState('')
 
     useEffect(() => {
         loadEvents();
@@ -13,47 +14,42 @@ export default function Home() {
     const loadEvents=async()=>{
         const result=await axios.get("http://localhost:8080/events");
         console.log(result.data)
-        setEvents(result.data);
+        setEvents(result.data)
+        // .catch(e => setErrors(e.message));
     }
-
-    // handleEndDateChange = (event) => {
-    //   event.date = event.target.value.replace('T', ' ');
-    // }
-
-  //   const splitDate = (date) => {
-  //     return date.split("",10)
-  // }
-
-  // <p>Date:    {splitDate(props.stock.date)}</p>
-
-   
+  
 
   return (
     <div className="gallery">
+      {/* <h1>{error}</h1> */}
                 {
                   events.map((event,index)=>(
                     <tr>
-                      <div className="card">
-                          <div className="row">
-                            <div className="col">
-                              <div className="collumn">
-                               <p key={index}>{index+1}</p>
-                               <p>Title: {event.title}</p>
-                               <p>Date: {event.date}</p>
-                               <p>Place: {event.place}</p>
-                             </div>
-                            </div>
-                            <div className="col align-self-center">
-                             <div className="description">
-                              Description: 
-                             <p>{event.description}</p>
-                            </div>
-                          </div>                           
+                        <div className="card border rounded shadow">
+                          <div className='container '>
+                            <div className="row">
+                              {/* <div className="event-overview"> */}
+                                <div className="col-4 align-self-center text-left">
+                                  <div className="event-info">
+                                    <p>{event.title}</p>
+                                    <br/>
+                                    <p >{event.place}</p>
+                                    <br/>
+                                    <p>{event.date}</p>
+                                  </div>
+                                </div>
+                                <div className="col align-self-center">
+                                  <div className="event-description">
+                                    <p>{event.description}</p>
+                                  </div>
+                                </div>                           
+                              {/* </div>                                 */}
+                            </div>                                                
                         </div>
                       </div>
                     </tr>
-                    ))
+                  ))
                 }
-      </div>
+    </div>
   )
 }
