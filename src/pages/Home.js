@@ -4,7 +4,7 @@ import './Home.css';
 
 export default function Home() {
   const [events, setEvents] = useState([]);
-  const [error, setErrors] = useState('');
+  //const [error, setErrors] = useState('');
 
   useEffect(() => {
     loadEvents();
@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="gallery">
       {/* <h1>{error}</h1> */}
-      {events.map((event, index) => (
+      {events.map((event) => (
         <tr>
           <div className="card border rounded shadow">
             <div className="container ">
