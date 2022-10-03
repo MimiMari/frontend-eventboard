@@ -49,7 +49,7 @@ export default function AddEvent() {
                 Description
               </label>
               <textarea
-                class="form-control"
+                className="form-control"
                 rows="4"
                 type={'text'}
                 placeholder="Enter description"
