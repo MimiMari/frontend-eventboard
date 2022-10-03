@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Home.css';
+import { Link, useParams } from 'react-router-dom';
 
 export default function Home() {
   const [events, setEvents] = useState([]);
   //const [error, setErrors] = useState('');
+
+  const { guid } = useParams();
 
   useEffect(() => {
     loadEvents();
@@ -15,6 +18,11 @@ export default function Home() {
     console.log(result.data);
     setEvents(result.data);
     // .catch(e => setErrors(e.message));
+  };
+
+  const deleteEvent = async (guid) => {
+    await axios.delete(`http://localhost:8080/event/${guid}`);
+    loadEvents();
   };
 
   return (
@@ -40,9 +48,18 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <button className="btn btn-primary mx-2">View</button>
-              <button className="btn btn-outline-primary mx-2">Edit</button>
-              <button className="btn btn-outline-danger mx-2">Delete</button>
+              <Link
+                className="btn btn-outline-secondary mx-2"
+                to={`/editevent/${event.guid}`}
+              >
+                Edit
+              </Link>
+              <button
+                className="btn btn-outline-danger mx-2"
+                onClick={() => deleteEvent(event.guid)}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </tr>
