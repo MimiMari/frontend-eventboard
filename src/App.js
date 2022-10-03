@@ -4,6 +4,7 @@ import Navbar from './layout/Navbar';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddEvent from './event/AddEvent';
+import EditEvent from './event/EditEvent';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/addevent" element={<AddEvent />} />
+          <Route exact path="/editevent/:guid" element={<EditEvent />} />
         </Routes>
       </Router>
     </div>
