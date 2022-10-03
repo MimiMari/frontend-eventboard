@@ -40,6 +40,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <button className="btn btn-primary mx-2">View</button>
+              <button className="btn btn-outline-primary mx-2">Edit</button>
+              <button className="btn btn-outline-danger mx-2">Delete</button>
             </div>
           </div>
         </tr>
